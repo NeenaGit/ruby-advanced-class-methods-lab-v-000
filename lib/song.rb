@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song
  attr_accessor :name, :artist_name
   @@all = []
@@ -41,21 +43,22 @@ def self.alphabetical
   self.all.sort_by{ | song | song.name}
 end
 
-# def self.new_from_filename(song)
-#     split_song = song.split(" - ")
-#     song_name = split_song(0)
-#
-#       name = song_name[0]
-#
-#       artist_name = name.split(".mp3")
-#              = song[1]
-#
-#       song = self.new
-#       song.name = name
-#       song.artist_name = artist_name
-#       song
-#     end
-# end
+def self.new_from_filename(song)
+    split_song = song.split(" - ")
+    binding.pry
+    song_name = split_song[0]
+
+      name = song_name[0]
+
+      artist_name = name.split(".mp3")
+             = song[1]
+
+      song = self.new
+      song.name = name
+      song.artist_name = artist_name
+      song
+    end
+end
 
 def self.create_from_filename(song)
   song = self.new
