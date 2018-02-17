@@ -34,7 +34,7 @@ def self.find_by_name(song_name)
 end
 
 def self.find_or_create_by_name(song)
-  find_by_name(song) || create_by_name(song)
+  self.find_by_name(song) || self.create_by_name(song)
   song
 end
 
