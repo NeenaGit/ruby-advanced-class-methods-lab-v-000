@@ -43,20 +43,17 @@ def self.alphabetical
   self.all.sort_by{ | song | song.name}
 end
 
-def self.new_from_filename(song)
-    split_song = song.split(" - ")
-    binding.pry
-    song_name = split_song[0]
+def self.new_from_filename(file)
+    split_song = file.split(" - ")
+    artist_name = split_song[0]
 
-      name = song_name[0]
+    song_name = split_song[1].gsub(".mp3", "")
 
-      artist_name = name.split(".mp3")
-      new_song = song[1]
 
-      song = self.new
-      song.name = name
-      song.artist_name = artist_name
-      song
+    song = self.new
+    song.name = song_name
+    song.artist_name = artist_name
+    song
 end
 
 def self.create_from_filename(song)
